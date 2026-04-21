@@ -13,6 +13,6 @@
 - **Regional balance:** Europe has 6 destinations in top 15, but Asia and Americas compete strongly
 
 ## Task 3: Seasonal Demand by Region
-- **Africa peak:** December (580 bookings, $2.7M) — likely driven by European winter escape travel
-- **Americas:** May and June dominate (900+ bookings each) — summer travel season
-- **Consistent spending:** Revenue per booking remains stable across months — volume drives seasonal revenue, not higher-paying travelers
+- **Africa peak:** December (11.45% of annual revenue) vs February low (4.73%) — 2.4x seasonal swing
+- **Americas:** More balanced distribution — June leads at 11.10%, but no month drops below 7%
+- **Window function insight:** Nested SUM required to calculate monthly percentage of regional total without collapsing result set

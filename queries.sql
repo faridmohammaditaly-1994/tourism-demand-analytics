@@ -48,15 +48,13 @@ ORDER BY rank_by_revenue;
 
 SELECT
     region,
-    TO_CHAR(travel_date, 'Month')   AS month_name,
-    COUNT(*)                        AS total_bookings,
-    SUM(total_spend)                AS month_revenue
+    TO_CHAR(travel_date, 'Month')                                               AS month_name,
+    COUNT(*)                                                                    AS total_bookings,
+    SUM(total_spend)                                                            AS month_revenue,
+        ROUND(100.0 * SUM(total_spend) / SUM(SUM(total_spend)) OVER (PARTITION BY region), 2) AS pct_of_regional_revenue
 FROM tourism.bookings
 GROUP BY region, month_name
 ORDER BY region, total_bookings DESC;
-	
-	
-	
 
 
 
