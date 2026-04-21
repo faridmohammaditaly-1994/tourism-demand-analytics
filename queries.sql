@@ -40,6 +40,32 @@ ORDER BY rank_by_revenue;
 
 
 
+-- ============================================================
+-- TASK 3: SEASONAL DEMAND ANALYSIS BY REGION
+-- ============================================================
+-- Business question: When does each region see peak bookings?
+-- Extract month from travel_date to avoid using redundant stored columns.
+
+SELECT
+    region,
+    TO_CHAR(travel_date, 'Month')   AS month_name,
+    COUNT(*)                        AS total_bookings,
+    SUM(total_spend)                AS month_revenue
+FROM tourism.bookings
+GROUP BY region, month_name
+ORDER BY region, total_bookings DESC;
+	
+	
+	
+
+
+
+
+
+
+
+
+
 
 
 
