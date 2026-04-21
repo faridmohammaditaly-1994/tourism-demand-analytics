@@ -5,3 +5,9 @@
 - **Data quality:** No nulls, no outliers — all satisfaction scores within 1–5 range
 - **Geographic coverage:** 15 distinct source countries
 - **Completeness:** 100% — all bookings have valid spend, nights stayed, and traveler counts
+
+## Task 2: Destination Performance Overview
+- **Top revenue destinations:** Paris ($12.7M), Bangkok ($12.6M), New York ($12.5M)
+- **Distribution:** Revenue is evenly distributed across 15 destinations — no single destination dominates
+- **Satisfaction:** Average satisfaction scores range from 3.80 to 3.85 — consistent across all destinations
+- **Regional balance:** Europe has 6 destinations in top 15, but Asia and Americas compete strongly

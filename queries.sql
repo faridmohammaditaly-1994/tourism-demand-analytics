@@ -16,3 +16,50 @@ SELECT
     COUNT(*) FILTER (WHERE nights_stayed <= 0 OR nights_stayed IS NULL)             AS null_zero_nights_stayed,
     COUNT(*) FILTER (WHERE num_travelers <= 0 OR num_travelers IS NULL)             AS null_zero_num_travelers
 FROM tourism.bookings;
+
+
+
+-- ============================================================
+-- TASK 2: DESTINATION PERFORMANCE OVERVIEW
+-- ============================================================
+-- Business question: Which destinations generate the most revenue?
+-- Leadership wants a ranked summary of bookings, revenue, and satisfaction.
+
+SELECT
+    destination,
+    region,
+    COUNT(*)                                AS num_bookings,
+    SUM(total_spend)                        AS total_revenue,
+    ROUND(AVG(total_spend), 2)              AS avg_revenue,
+    ROUND(AVG(satisfaction_score), 2)       AS avg_satisfaction,
+    RANK() OVER(ORDER BY SUM(total_spend) DESC) AS rank_by_revenue
+FROM tourism.bookings
+GROUP BY destination, region
+ORDER BY rank_by_revenue;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
