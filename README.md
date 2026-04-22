@@ -40,5 +40,10 @@ As a data analyst at a national tourism board, leadership needs insights into de
 
 ## Status
 - [x] Task 1: Data Audit
-- [ ] Task 2: Destination Performance Overview
-- [ ] Task 3–8: TBD
+- [x] Task 2: Destination Performance Overview
+- [x] Task 3: Seasonal Demand by Region
+- [x] Task 4: Traveler Segment Revenue Analysis
+- [x] Task 5: Year-over-Year Revenue Growth
+- [x] Task 6: Booking Channel Performance
+- [x] Task 7: Quarterly Destination Trend
+- [x] Task 8: Destination Performance Scorecard
