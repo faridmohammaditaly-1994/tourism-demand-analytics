@@ -129,6 +129,39 @@ GROUP BY booking_channel, traveler_type
 ORDER BY booking_channel, ranking;
 
 
+-- ============================================================
+-- TASK 7: DESTINATION POPULARITY TREND USING DATE_TRUNC
+-- ============================================================
+-- Business question: Which destinations are growing or declining?
+-- Quarterly booking trends per destination to spot momentum.
+
+WITH quarterly_performance AS (
+    SELECT
+        destination,
+        DATE_TRUNC('quarter', travel_date)                          AS quarter_date,
+        COUNT(*)                                                    AS total_bookings,
+        SUM(total_spend)                                            AS total_revenue,
+        ROUND(AVG(daily_spend_per_person), 2)                       AS avg_daily_spend_per_person,
+        LAG(COUNT(*)) OVER (
+            PARTITION BY destination
+            ORDER BY DATE_TRUNC('quarter', travel_date)
+        )                                                           AS previous_quarter_bookings
+    FROM tourism.bookings
+    GROUP BY destination, DATE_TRUNC('quarter', travel_date)
+)
+SELECT
+    destination,
+    TO_CHAR(quarter_date, 'YYYY "Q"Q')                             AS quarter_label,
+    total_bookings,
+    total_revenue,
+    previous_quarter_bookings,
+    avg_daily_spend_per_person,
+    ROUND(
+        (total_bookings - previous_quarter_bookings) * 100.0
+        / NULLIF(previous_quarter_bookings, 0),
+    2)                                                              AS qoq_bookings
+FROM quarterly_performance
+ORDER BY destination, quarter_date;
 
 
 

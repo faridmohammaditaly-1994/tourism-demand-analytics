@@ -35,3 +35,9 @@
 - **No channel outperforms another** — revenue, spend, and satisfaction are uniform across Direct, Corporate, Online Agency, and Travel Agent
 - **Business recommendation:** Since Direct channel matches third-party performance, reducing dependency on Online Agency and Travel Agent would cut commission costs without sacrificing revenue
 - **Analytical note:** Uniformity across channels suggests synthetic data — real data would show Direct bookings with higher satisfaction and Corporate skewing toward Business travelers
+
+## Task 7: Destination Quarterly Trend Analysis
+- **Q1 is low season universally** — both bookings and daily spend drop together across all destinations
+- **Q3 is peak season** — highest bookings and highest avg daily spend consistently across destinations
+- **No single destination shows sustained growth** — all destinations show volatile QoQ swings, consistent with synthetic data
+- **Analytical validation:** Tested Q1 spend hypothesis against Paris data — confirmed spend drops in Q1, not rises
