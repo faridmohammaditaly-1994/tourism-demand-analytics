@@ -29,3 +29,9 @@
 - **Middle East most volatile:** Swung from +12.99% in 2021 to -8.40% in 2023
 - **Europe most stable:** Largest revenue region but growth has been flat since 2020 recovery
 - **No region returned to strong growth by 2023** — suggests full tourism recovery was still incomplete
+
+## Task 6: Booking Channel Performance Analysis
+- **Identical ranking across all channels:** Group Tour → Family → Business → Couple → Solo in every channel
+- **No channel outperforms another** — revenue, spend, and satisfaction are uniform across Direct, Corporate, Online Agency, and Travel Agent
+- **Business recommendation:** Since Direct channel matches third-party performance, reducing dependency on Online Agency and Travel Agent would cut commission costs without sacrificing revenue
+- **Analytical note:** Uniformity across channels suggests synthetic data — real data would show Direct bookings with higher satisfaction and Corporate skewing toward Business travelers

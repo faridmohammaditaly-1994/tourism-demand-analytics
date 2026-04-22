@@ -107,7 +107,26 @@ SELECT
 FROM previous_year_revenues
 ORDER BY region, travel_year;
 
+-- ============================================================
+-- TASK 6: BOOKING CHANNEL PERFORMANCE ANALYSIS
+-- ============================================================
+-- Business question: Which booking channels generate the most revenue
+-- and which channels attract the highest-spending traveler types?
 
+SELECT
+    booking_channel,
+    traveler_type,
+    COUNT(*)                                AS total_bookings,
+    SUM(total_spend)                        AS total_revenue,
+    ROUND(AVG(daily_spend_per_person), 2)   AS avg_daily_spend_per_person,
+    ROUND(AVG(satisfaction_score), 2)       AS avg_satisfaction_score,
+    RANK() OVER (
+        PARTITION BY booking_channel
+        ORDER BY SUM(total_spend) DESC
+    )                                       AS ranking
+FROM tourism.bookings
+GROUP BY booking_channel, traveler_type
+ORDER BY booking_channel, ranking;
 
 
 
