@@ -165,6 +165,41 @@ ORDER BY destination, quarter_date;
 
 
 
+-- ============================================================
+-- TASK 8: FINAL SYNTHESIS — DESTINATION PERFORMANCE SCORECARD
+-- ============================================================
+-- Business question: Rank every destination across revenue,
+-- satisfaction, growth, and repeat visitor rate in one scorecard.
+
+SELECT
+    region,
+    destination,
+    SUM(total_spend)                                                        AS total_revenue,
+    ROUND(AVG(satisfaction_score), 2)                                       AS avg_satisfaction,
+    ROUND(
+        COUNT(*) FILTER (WHERE is_repeat_visitor = 1) * 100.0
+        / NULLIF(COUNT(*), 0),
+    2)                                                                      AS repeat_visitor_rate,
+    ROUND(
+        (SUM(total_spend) FILTER (WHERE travel_year = 2023)
+        - SUM(total_spend) FILTER (WHERE travel_year = 2019))
+        / NULLIF(SUM(total_spend) FILTER (WHERE travel_year = 2019), 0)
+        * 100.0,
+    2)                                                                      AS revenue_growth,
+    DENSE_RANK() OVER (ORDER BY SUM(total_spend) DESC)                      AS rank_by_revenue,
+    DENSE_RANK() OVER (ORDER BY AVG(satisfaction_score) DESC)               AS rank_by_satisfaction,
+    DENSE_RANK() OVER (
+        ORDER BY COUNT(*) FILTER (WHERE is_repeat_visitor = 1)
+        * 100.0 / NULLIF(COUNT(*), 0) DESC
+    )                                                                       AS rank_by_repeat_visitor_rate
+FROM tourism.bookings
+WHERE travel_year BETWEEN 2019 AND 2023
+GROUP BY region, destination
+ORDER BY rank_by_revenue;
+	
+
+
+
 
 
 

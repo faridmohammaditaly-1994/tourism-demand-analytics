@@ -41,3 +41,11 @@
 - **Q3 is peak season** — highest bookings and highest avg daily spend consistently across destinations
 - **No single destination shows sustained growth** — all destinations show volatile QoQ swings, consistent with synthetic data
 - **Analytical validation:** Tested Q1 spend hypothesis against Paris data — confirmed spend drops in Q1, not rises
+
+## Task 8: Destination Performance Scorecard
+- **Paris leads revenue** ($12.7M) but ranks 14th in satisfaction and 9th in repeat visitors — strong brand, weak experience
+- **Cancun tops satisfaction** (3.85, rank 1) and ranks 5th in revenue — high-quality destination
+- **Marrakech is the hidden gem** — ranks 14th in revenue but leads growth (+18.64%) and 3rd in repeat visitors
+- **Tokyo and Amsterdam are declining** — revenue growth of -16.48% and -16.19% respectively, worst in the dataset
+- **New York ranks 1st in repeat visitors** (25.85%) — strongest loyalty despite ranking 3rd in revenue
+- **No destination dominates all dimensions** — trade-offs exist between revenue, satisfaction, and loyalty
