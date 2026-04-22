@@ -57,7 +57,24 @@ GROUP BY region, month_name
 ORDER BY region, total_bookings DESC;
 
 
+-- ============================================================
+-- TASK 4: TRAVELER SEGMENT REVENUE ANALYSIS
+-- ============================================================
+-- Business question: Which traveler types generate the most revenue
+-- and have the longest stays? Which segments should marketing target?
 
+SELECT
+    traveler_type,
+    COUNT(*)                                        AS total_bookings,
+    SUM(total_spend)                                AS total_revenue,
+    ROUND(AVG(nights_stayed), 2)                    AS avg_nights_stayed,
+    ROUND(AVG(num_travelers), 2)                    AS avg_num_travelers,
+    ROUND(AVG(daily_spend_per_person), 2)           AS avg_daily_spend_per_person,
+    ROUND(AVG(satisfaction_score), 2)               AS avg_satisfaction,
+    RANK() OVER (ORDER BY SUM(total_spend) DESC)    AS rank_by_revenue
+FROM tourism.bookings
+GROUP BY traveler_type
+ORDER BY rank_by_revenue;
 
 
 
