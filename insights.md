@@ -22,3 +22,10 @@
 - **Business travelers** have highest satisfaction (4.25) and highest daily spend per person ($311)
 - **All segments have equal booking volume** (~10,000 each) — revenue differences driven by party size and spend, not demand
 - **Recommendation:** Improve Group Tour satisfaction to protect the highest-revenue segment; upsell Business travelers on longer stays
+
+## Task 5: Year-over-Year Revenue Growth by Region
+- **2020 decline:** All regions dropped in 2020 — consistent with COVID-19 impact on global tourism
+- **Asia hardest hit:** -8.48% in 2020 and continued declining through 2023 (-5.30%) — never fully recovered
+- **Middle East most volatile:** Swung from +12.99% in 2021 to -8.40% in 2023
+- **Europe most stable:** Largest revenue region but growth has been flat since 2020 recovery
+- **No region returned to strong growth by 2023** — suggests full tourism recovery was still incomplete

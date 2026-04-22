@@ -77,6 +77,35 @@ GROUP BY traveler_type
 ORDER BY rank_by_revenue;
 
 
+-- ============================================================
+-- TASK 5: YEAR-OVER-YEAR REVENUE GROWTH BY REGION
+-- ============================================================
+-- Business question: Is tourism demand recovering and growing?
+-- Leadership wants revenue trends by region and YoY growth rates.
+
+WITH previous_year_revenues AS (
+    SELECT
+        region,
+        EXTRACT(YEAR FROM travel_date)                                          AS travel_year,
+        SUM(total_spend)                                                        AS total_revenue,
+        LAG(SUM(total_spend)) OVER (
+            PARTITION BY region
+            ORDER BY EXTRACT(YEAR FROM travel_date)
+        )                                                                       AS previous_year_revenue
+    FROM tourism.bookings
+    GROUP BY region, EXTRACT(YEAR FROM travel_date)
+)
+SELECT
+    region,
+    travel_year,
+    total_revenue,
+    previous_year_revenue,
+    ROUND(
+        (total_revenue - NULLIF(previous_year_revenue, 0)) * 100.0
+        / NULLIF(previous_year_revenue, 0),
+    2)                                                                          AS yoy_growth
+FROM previous_year_revenues
+ORDER BY region, travel_year;
 
 
 
